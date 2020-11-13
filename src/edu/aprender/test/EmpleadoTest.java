@@ -36,7 +36,6 @@ public class EmpleadoTest {
 			logger.debug("Eliminamos un empleado");
 			empleadoJPA.eliminar(1);
 			mostrar(empleadoJPA.consultar());
-
 		} catch (Exception e) {
 			logger.error("Error " + e.getMessage());
 			e.printStackTrace();

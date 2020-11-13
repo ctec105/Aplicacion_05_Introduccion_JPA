@@ -17,21 +17,21 @@ public class EmpleadoJPA {
 	
 	// Definimos un método con nombre setup para configurar los valores iniciales de esas propiedades	
 	public void setup() {
-		// Referenciamos a nuestra unidad de persistencia Aplicacion_05 para gestionar nuestras entidades
-		emf = Persistence.createEntityManagerFactory("Aplicacion_05_Introduccion_JPA");
-		// Creamos instancia del EntityManager
+		// Referenciamos a nuestra unidad de persistencia 'Aplicacion_JPA_01' para gestionar nuestras entidades
+		emf = Persistence.createEntityManagerFactory("Aplicacion_JPA_01");
+		// Creamos la instancia del EntityManager
 		em = emf.createEntityManager();
 	}
 
 	// Definimos un método close para liberar el objeto Entity Manager.
 	public void close() {
-		// cierra el EntityManager
+		// Cierra el EntityManager
 		em.close();
 	}
 
 	// Ahora definimos un método para ejecutar sentencias SELECT:
 	public List<Empleado> consultar() throws Exception {
-		// 1. Definimos JPQL
+		// 1.Definimos JPQL
 		String query = "SELECT o FROM Empleado o ORDER BY o.id";
 		Query emquery = em.createQuery(query);
 		// 2.Ejecutamos query
@@ -67,7 +67,7 @@ public class EmpleadoJPA {
 	public void eliminar(Integer id) throws Exception {
 		// 1.Inicia la transacción
 		em.getTransaction().begin();
-		// 2. Prepara las operaciones
+		// 2.Prepara las operaciones
 		// 2.1 busca Empleado por llave primaria
 		Empleado entidadEmpleado = (Empleado) em.find(Empleado.class, id);
 		// 2.2 Elimina Empleado
